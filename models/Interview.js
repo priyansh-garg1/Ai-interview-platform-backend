@@ -1,10 +1,12 @@
 import mongoose from 'mongoose';
 
 const InterviewSchema = new mongoose.Schema({
-    questionList: {
-        type: Array,
-        default: [],
-    },
+    questionList: [
+        {
+            question: { type: String },
+            type: { type: String },
+        },
+    ],
     jobPosition: {
         type: String,
         default: '',
@@ -14,12 +16,12 @@ const InterviewSchema = new mongoose.Schema({
         default: '',
     },
     type: {
-        type: String,
-        default: '',
+        type: [String], // Changed to array of strings
+        default: [],
     },
     duration: {
-        type: Number,
-        default: 0,
+        type: String, // Changed to String
+        default: '0 Min',
     },
     userEmail: {
         type: String,
