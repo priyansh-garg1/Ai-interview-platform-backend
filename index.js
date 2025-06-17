@@ -18,9 +18,11 @@ mongoose.connect(process.env.MONGO_URI)
 
 import userRoutes from './routes/userRoutes.js';
 import aiRoutes from './routes/aiRoutes.js';
+import interviewRoutes from './routes/interviewRoutes.js';
 
 app.use('/api/users', userRoutes);
 app.use('/api/ai', aiRoutes);
+app.use('/api/interview', interviewRoutes);
 
 
 
