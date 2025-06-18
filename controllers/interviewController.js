@@ -17,3 +17,18 @@ export const saveInterviewData = async (req, res) => {
         res.status(500).json({ message: 'Error saving interview data', error });
     }
 };
+
+export const getInterviewById = async (req, res) => {
+    try {
+        const { interviewId } = req.params;
+        const interview = await Interview.findOne({ interviewId });
+
+        if (!interview) {
+            return res.status(404).json({ message: 'Interview not found' });
+        }
+
+        res.status(200).json(interview);
+    } catch (error) {
+        res.status(500).json({ message: 'Error fetching interview data', error });
+    }
+};
