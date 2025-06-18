@@ -12,7 +12,7 @@ export const saveInterviewData = async (req, res) => {
             userEmail,
         });
         await newInterview.save();
-        res.status(201).json({ message: 'Interview data saved successfully!' });
+        res.status(201).json({ message: 'Interview data saved successfully!', interviewId: newInterview.interviewId });
     } catch (error) {
         res.status(500).json({ message: 'Error saving interview data', error });
     }

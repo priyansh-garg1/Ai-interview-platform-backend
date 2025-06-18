@@ -1,6 +1,12 @@
 import mongoose from 'mongoose';
+import { v4 as uuidv4 } from 'uuid';
 
 const InterviewSchema = new mongoose.Schema({
+    interviewId: {
+        type: String,
+        default: uuidv4,
+        unique: true,
+    },
     questionList: [
         {
             question: { type: String },
@@ -16,11 +22,11 @@ const InterviewSchema = new mongoose.Schema({
         default: '',
     },
     type: {
-        type: [String], // Changed to array of strings
+        type: [String], 
         default: [],
     },
     duration: {
-        type: String, // Changed to String
+        type: String,
         default: '0 Min',
     },
     userEmail: {
