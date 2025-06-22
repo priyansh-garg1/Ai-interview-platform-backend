@@ -52,9 +52,15 @@ export const getInterviewFeedback = async (req, res) => {
         },
       ],
     });
+<<<<<<< HEAD
     console.log(completion.choices[0].message);
 
     return res.json(completion.choices[0].message);
+=======
+    console.log(completion.choices[0].message.content);
+
+    return res.json(completion.choices[0].message.content);
+>>>>>>> 710731e83918cc065df80439ce29cf5ac8409390
   } catch (error) {
     console.log(error);
     return res.status(500).json({ error: error.message });
