@@ -52,9 +52,9 @@ export const getInterviewFeedback = async (req, res) => {
         },
       ],
     });
-    console.log(completion.choices[0].message.content);
+    console.log(completion.choices[0].message);
 
-    return res.json(completion.choices[0].message.content);
+    return res.json(completion.choices[0].message);
   } catch (error) {
     console.log(error);
     return res.status(500).json({ error: error.message });
